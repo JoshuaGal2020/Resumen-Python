@@ -1,6 +1,7 @@
 
 import re
 import nltk
+from gtts import gTTS
 from inscriptis import get_text
 from nltk import word_tokenize, sent_tokenize
 
@@ -48,3 +49,10 @@ from googletrans import Translator
 translator = Translator()
 result = translator.translate(summary ,src='en', dest="es")
 print(result.text)
+#Parcial 1
+import os
+mytext = result.text
+language = 'es'
+myobj = gTTS(text=mytext, lang=language, slow=False)
+myobj.save("resumen.mp3")
+os.system("resumen.mp3")
